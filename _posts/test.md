@@ -1,4 +1,13 @@
-'Sublime Text 3'
-作为一个优秀的文本编译器
+---
+layout: post
+title: "First post"
+date: 2013-08-02 14:19:01
+categories: mypost
+---
 
-###1. 安装Markdown Editing和Markdown Preview 插件
+>> Here is my first jekyll post
+
++ Just for test
+* Just for Test
+
+        I'm trying to write some code
