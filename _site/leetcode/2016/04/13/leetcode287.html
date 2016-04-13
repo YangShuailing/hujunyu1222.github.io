@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Niklas Buschmann 2015 MIT <http://github.com/niklasbuschmann> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    
+    <meta name="description" content="Really cool blog about ... something">
+    <title> Find the Duplicated Number › Lost in Code</title>
+    <link rel="canonical" href="/leetcode/2016/04/13/leetcode287.html">
+    <link href="/main.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Gentium+Basic:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="" />
+    <script src="//niklasbuschmann.disqus.com/embed.js" async></script>
+    
+  </head>
+  <body>
+    <header>
+      <h1><a href="/">Lost in Code</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li><li><a href="/archive.html">Archive</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    
+    <article>
+      <header>
+        <h2><a href="/leetcode/2016/04/13/leetcode287.html">Find the Duplicated Number</a></h2>
+        <p><time datetime="2016-04-13T00:00:00+08:00">Apr 13, 2016</time> • leetcode</p>
+      </header>
+      <div>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Find the Duplicated Number</h1>
+    <p class="post-meta"><time datetime="2016-04-13T00:00:00+08:00" itemprop="datePublished">Apr 13, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h1 id="section"><strong>问题描述</strong></h1>
+
+<blockquote>
+  <p>Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.</p>
+</blockquote>
+
+<p><strong>要求</strong></p>
+
+<ul>
+  <li>不能修改数组（数组只读）</li>
+  <li>空间复杂度<strong>O(1)</strong></li>
+  <li>时间复杂度<strong>小于O(n^2)</strong></li>
+</ul>
+
+<p><strong>思路</strong></p>
+
+<p>这道题的突破口是数的范围，即对于n+1个数中的每个数x都有：<strong>1 &lt;= x &lt;= n</strong> ,所以可以通过下标来遍历数组(<strong>将每个数当做下标来遍历数组</strong>*):</p>
+
+<p><img src="/asset/img/2016-4-13-leetcode287.jpg" alt="" /></p>
+
+<p>因为一定存在唯一一个重复的数（可以重复很多次），所以一定会<strong>形成环</strong>，所以只要找到环入口，它的前驱一定是那个重复的数，期间可以做剪枝。做法参考寻找单链表环的入口。</p>
+
+<p><strong>Code</strong></p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c">    <span class="kt">int</span> <span class="n">findtheDupNum</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">pre</span><span class="p">;</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">p2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">pre</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">do</span><span class="p">{</span>
+            <span class="n">p1</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">p1</span><span class="p">];</span>
+            <span class="n">p2</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="n">p2</span><span class="p">]];</span>
+        <span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">p1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">v</span><span class="p">[</span><span class="n">p2</span><span class="p">]);</span>
+        <span class="c1">//剪枝
+</span>        <span class="k">if</span> <span class="p">(</span><span class="n">p1</span> <span class="o">!=</span> <span class="n">p2</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">v</span><span class="p">[</span><span class="n">p1</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">p1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">v</span><span class="p">[</span><span class="n">p2</span><span class="p">]){</span>
+            <span class="n">pre</span><span class="o">=</span> <span class="n">p2</span><span class="p">;</span>
+            <span class="n">p2</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">p2</span><span class="p">];</span>
+            <span class="n">p1</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">p1</span><span class="p">];</span>
+            <span class="c1">//cout &lt;&lt; v[p1] &lt;&lt; " " &lt;&lt; v[p2] &lt;&lt; endl;
+</span>        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p1</span> <span class="o">==</span> <span class="n">p2</span><span class="p">){</span>
+            <span class="k">return</span> <span class="n">v</span><span class="p">[</span><span class="n">pre</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="k">return</span> <span class="n">v</span><span class="p">[</span><span class="n">p1</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span></code></pre></figure>
+
+  </div>
+
+</article>
+
+      </div>
+      
+      
+      <div id="disqus_thread"></div>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+    </article>
+
+    <footer>
+      <span><a href="">Junyu Hu</a></span>
+      <span><a href="https://github.com/hujunyu1222/"><i class="fa fa-github-square"></i></a><a href="https://github.com/hujunyu1222/"><i class="fa fa-weibo-square"></i></a></span>
+      <span>&copy; 2016</span>
+    </footer>
+  </body>
+</html>
