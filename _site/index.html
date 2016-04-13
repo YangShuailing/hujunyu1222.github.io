@@ -28,6 +28,135 @@
     
     
     
+    <article>
+      <header>
+        <h2><a href="/leetcode/2016/04/13/leetcode287.html">Find the Duplicated Number</a></h2>
+        <p><time datetime="2016-04-13T00:00:00+08:00">Apr 13, 2016</time> • leetcode</p>
+      </header>
+      <div>
+<h1 id="section"><strong>问题描述</strong></h1>
+
+<blockquote>
+  <p>Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.</p>
+</blockquote>
+
+<p><strong>要求</strong></p>
+
+<ul>
+  <li>不能修改数组（数组只读）</li>
+  <li>空间复杂度<strong>O(1)</strong></li>
+  <li>时间复杂度<strong>小于O(n^2)</strong></li>
+</ul>
+
+
+      </div>
+      <footer>
+        <p><a href="/leetcode/2016/04/13/leetcode287.html">read more &raquo;</a></p>
+      </footer>
+    </article>
+    
+    <article>
+      <header>
+        <h2><a href="/git-pages/jekyll/markdown/2016/04/11/first-post.html">搭建个人独立博客</a></h2>
+        <p><time datetime="2016-04-11T21:57:00+08:00">Apr 11, 2016</time> • git-pages, jekyll, and markdown</p>
+      </header>
+      <div>
+<h1 id="section">1.前言</h1>
+
+
+      </div>
+      <footer>
+        <p><a href="/git-pages/jekyll/markdown/2016/04/11/first-post.html">read more &raquo;</a></p>
+      </footer>
+    </article>
+    
+    <article>
+      <header>
+        <h2><a href="/example/2014/09/11/example-2.html">Example 2</a></h2>
+        <p><time datetime="2014-09-11T06:37:00+08:00">Sep 11, 2014</time> • example</p>
+      </header>
+      <div>
+<p><strong>Basic</strong></p>
+
+<p>Neque porro <em>quisquam</em> est, qui <strong>dolorem</strong> ipsum, quia <strong><em>dolor</em></strong> sit, amet, <a href="http://cjdns.info/">consectetur</a>, adipisci velit.</p>
+
+<ul>
+  <li>lorem</li>
+  <li>ipsum</li>
+</ul>
+
+<ol>
+  <li>dolor</li>
+  <li>sit</li>
+</ol>
+
+
+      </div>
+      <footer>
+        <p><a href="/example/2014/09/11/example-2.html">read more &raquo;</a></p>
+      </footer>
+    </article>
+    
+    <article>
+      <header>
+        <h2><a href="/example/2014/09/11/example.html">Example</a></h2>
+        <p><time datetime="2014-09-11T06:37:00+08:00">Sep 11, 2014</time> • example</p>
+      </header>
+      <div>
+<p><strong>Basic</strong></p>
+
+<p>Neque porro <em>quisquam</em> est, qui <strong>dolorem</strong> ipsum, quia <strong><em>dolor</em></strong> sit, amet, <a href="http://cjdns.info/">consectetur</a>, adipisci velit.</p>
+
+<ul>
+  <li>lorem</li>
+  <li>ipsum</li>
+</ul>
+
+<ol>
+  <li>dolor</li>
+  <li>sit</li>
+</ol>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Header</th>
+      <th>Second Header</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Table Cell</td>
+      <td>Table Cell</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Blockquote</strong></p>
+
+<blockquote>
+  <p>They who can give up essential liberty to obtain a little temporary safety, deserve neither liberty nor safety.</p>
+
+  <p><em>Benjamin Franklin</em></p>
+</blockquote>
+
+<p><strong>Code</strong></p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">static</span> <span class="kt">void</span> <span class="nf">asyncEnabled</span><span class="p">(</span><span class="n">Dict</span><span class="o">*</span> <span class="n">args</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">vAdmin</span><span class="p">,</span> <span class="n">String</span><span class="o">*</span> <span class="n">txid</span><span class="p">,</span> <span class="k">struct</span> <span class="n">Allocator</span><span class="o">*</span> <span class="n">requestAlloc</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">Admin</span><span class="o">*</span> <span class="n">admin</span> <span class="o">=</span> <span class="n">Identity_check</span><span class="p">((</span><span class="k">struct</span> <span class="n">Admin</span><span class="o">*</span><span class="p">)</span> <span class="n">vAdmin</span><span class="p">);</span>
+    <span class="kt">int64_t</span> <span class="n">enabled</span> <span class="o">=</span> <span class="n">admin</span><span class="o">-&gt;</span><span class="n">asyncEnabled</span><span class="p">;</span>
+    <span class="n">Dict</span> <span class="n">d</span> <span class="o">=</span> <span class="n">Dict_CONST</span><span class="p">(</span><span class="n">String_CONST</span><span class="p">(</span><span class="s">"asyncEnabled"</span><span class="p">),</span> <span class="n">Int_OBJ</span><span class="p">(</span><span class="n">enabled</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">Admin_sendMessage</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d</span><span class="p">,</span> <span class="n">txid</span><span class="p">,</span> <span class="n">admin</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+
+      </div>
+      <footer>
+        <p><a href="/example/2014/09/11/example.html">read more &raquo;</a></p>
+      </footer>
+    </article>
+    
     
 
     <footer>
