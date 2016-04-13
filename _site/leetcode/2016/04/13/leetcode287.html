@@ -59,7 +59,7 @@
 
 <p>这道题的突破口是数的范围，即对于n+1个数中的每个数x都有：<strong>1 &lt;= x &lt;= n</strong> ,所以可以通过下标来遍历数组(<strong>将每个数当做下标来遍历数组</strong>*):</p>
 
-<p><img src="/asset/img/2016-4-13-leetcode287.jpg" alt="" /></p>
+<p><img src="/assets/img/2016-4-13-leetcode287.jpg" alt="" /></p>
 
 <p>因为一定存在唯一一个重复的数（可以重复很多次），所以一定会<strong>形成环</strong>，所以只要找到环入口，它的前驱一定是那个重复的数，期间可以做剪枝。做法参考寻找单链表环的入口。</p>
 

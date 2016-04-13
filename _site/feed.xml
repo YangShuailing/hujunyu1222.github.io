@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-04-13T16:52:20+08:00</updated><id>/</id><title>Lost in Code</title><subtitle>Really cool blog about ... something</subtitle><author><name>Junyu Hu</name></author><entry><title>Find the Duplicated Number</title><link href="/leetcode/2016/04/13/leetcode287.html" rel="alternate" type="text/html" title="Find the Duplicated Number" /><published>2016-04-13T00:00:00+08:00</published><updated>2016-04-13T00:00:00+08:00</updated><id>/leetcode/2016/04/13/leetcode287</id><content type="html" xml:base="/leetcode/2016/04/13/leetcode287.html">&lt;h1 id=&quot;section&quot;&gt;&lt;strong&gt;问题描述&lt;/strong&gt;&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-04-13T17:41:10+08:00</updated><id>/</id><title>Lost in Code</title><subtitle>Really cool blog about ... something</subtitle><author><name>Junyu Hu</name></author><entry><title>Find the Duplicated Number</title><link href="/leetcode/2016/04/13/leetcode287.html" rel="alternate" type="text/html" title="Find the Duplicated Number" /><published>2016-04-13T00:00:00+08:00</published><updated>2016-04-13T00:00:00+08:00</updated><id>/leetcode/2016/04/13/leetcode287</id><content type="html" xml:base="/leetcode/2016/04/13/leetcode287.html">&lt;h1 id=&quot;section&quot;&gt;&lt;strong&gt;问题描述&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.&lt;/p&gt;
@@ -16,7 +16,7 @@
 
 &lt;p&gt;这道题的突破口是数的范围，即对于n+1个数中的每个数x都有：&lt;strong&gt;1 &amp;lt;= x &amp;lt;= n&lt;/strong&gt; ,所以可以通过下标来遍历数组(&lt;strong&gt;将每个数当做下标来遍历数组&lt;/strong&gt;*):&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/asset/img/2016-4-13-leetcode287.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/2016-4-13-leetcode287.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;因为一定存在唯一一个重复的数（可以重复很多次），所以一定会&lt;strong&gt;形成环&lt;/strong&gt;，所以只要找到环入口，它的前驱一定是那个重复的数，期间可以做剪枝。做法参考寻找单链表环的入口。&lt;/p&gt;
 
