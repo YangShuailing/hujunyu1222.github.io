@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-04-12T21:42:11+08:00</updated><id>/</id><title>Lost in Code</title><subtitle>Really cool blog about ... something</subtitle><author><name>Junyu Hu</name></author><entry><title>搭建个人独立博客</title><link href="/git-pages/jekyll/markdown/2016/04/11/first-post.html" rel="alternate" type="text/html" title="搭建个人独立博客" /><published>2016-04-11T21:57:00+08:00</published><updated>2016-04-11T21:57:00+08:00</updated><id>/git-pages/jekyll/markdown/2016/04/11/first-post</id><content type="html" xml:base="/git-pages/jekyll/markdown/2016/04/11/first-post.html">&lt;h1 id=&quot;section&quot;&gt;1.前言&lt;/h1&gt;
+
+&lt;p&gt;我早就想搭建一个自己的博客了，由于拖延症晚期，所以一直到现在我才准备真正动手。&lt;em&gt;_(:зゝ∠)_&lt;/em&gt; 不多说，进入正题。
+我主要采用的是&lt;code class=&quot;highlighter-rouge&quot;&gt;github-pages&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;markdown&lt;/code&gt; 这一套架构。主要分工如下：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;github-pages用于显示博客的主页，相当于把自己的博客挂在github上&lt;/li&gt;
+  &lt;li&gt;jekyll用于将用markdown写的博客转换为静态的html页面&lt;/li&gt;
+  &lt;li&gt;markdown用于编写博客，十分方便。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;section-1&quot;&gt;2.具体搭建过程&lt;/h1&gt;
+
+&lt;h2 id=&quot;github-pages&quot;&gt;2.1 Github-pages&lt;/h2&gt;
+
+&lt;p&gt;想要github-pages，首先你要拥有一个&lt;a href=&quot;https://github.com/&quot;&gt;Github&lt;/a&gt;账号。
+完成注册后，新建一个&lt;strong&gt;repository&lt;/strong&gt;,命名为&lt;code class=&quot;highlighter-rouge&quot;&gt;你的用户名.github.io&lt;/code&gt;或者&lt;code class=&quot;highlighter-rouge&quot;&gt;你的用户名.github.com&lt;/code&gt; ，这个命名规则必须的，这个repository就是你账号的github-pages，&lt;strong&gt;每个账号只有一个！&lt;/strong&gt;，而对于其他的项目，每个项目可以有多个git-pages。
+现在是个空的repository，我们暂时不管它。&lt;/p&gt;
+
+&lt;h2 id=&quot;jekyll&quot;&gt;2.2 安装Jekyll&lt;/h2&gt;
+&lt;p&gt;Jekyll是默认支持markdown语法的，&lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;markdown语法&lt;/a&gt;简单易学，而且高效，无论是做笔记还是写心得都十分适合作为程序员的我们。&lt;/p&gt;
+
+&lt;p&gt;本地文件操作简单，不需要管理数据库。新建了一个文件，刷新一下，页面上就有了发布的文件。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Jekyll是基于&lt;strong&gt;Ruby&lt;/strong&gt;环境的，如果你是使用MAC的用户，那你的电脑里应该默认安装了Ruby环境，而像我这样的windows8用户，就需要先&lt;a href=&quot;http://rubyinstaller.org/downloads/&quot;&gt;下载Ruby&lt;/a&gt;环境安装以及对应的&lt;strong&gt;development kit&lt;/strong&gt;。ruby安装完后,安装完后一定记得将ruby添加的PATH中（安装的时候钩选&lt;strong&gt;add to PATH&lt;/strong&gt;选项），我们将下载的development kit解压，如下图：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2016-4-11_devkit.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;通过cmd我们进入该目录，并且运行指令安装devlopment kit：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ruby dk.rb init 
+ruby dk.rb install 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;    &lt;span class=&quot;cp&quot;&gt;#include &amp;lt;iostream&amp;gt;
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello World!&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;接下来就是安装jekyll了，运行指令：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem install jekyll      //安装jekyll
+gem install pygments.rb //用于语法高亮
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;pygments的安装需要python环境的支持，具体可以去&lt;a href=&quot;http://pygments.org/&quot;&gt;pygments官网&lt;/a&gt;查看。&lt;/p&gt;
+
+&lt;p&gt;安装完jekyll后，我们可以在&lt;em&gt;D:\Ruby22-x64\lib\ruby\gems\2.2.0\gems\jekyll-3.1.2&lt;/em&gt;
+找到jekyll，将该路径添加至PATH。&lt;/p&gt;
+
+&lt;p&gt;接下来就可以用jekyll新建自己的博客了！在cmd中，进入自己选定的目录，输入命令：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll new aaa //aaa是你指定的名字
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;则你就可以获得了一个default配置的博客了，如下图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2016-4-11_newblog.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com/docs/home/&quot;&gt;jekyll官网&lt;/a&gt;给出的目录结构如下图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2016-4-11_jekyllcatalogue.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;可能生成的目录结构会有点不一样，但是基本是一样的，每个目录或文件的用途我自己还不是很懂，毕竟刚刚摸索，大致的用途引用自一个简书作者&lt;a href=&quot;http://www.jianshu.com/p/609e1197754c&quot;&gt;原文&lt;/a&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;_layouts：用于存放模板的文件夹。&lt;/li&gt;
+  &lt;li&gt;_posts：用于存放博客文章的文件夹。&lt;/li&gt;
+  &lt;li&gt;css：存放博客所用css的文件夹,比如主题文件以及高亮文件都是放在此处的。&lt;/li&gt;
+  &lt;li&gt;_coinfig.yml：jekyll的配置文件，里面可以定义相当多的配置参数。&lt;/li&gt;
+  &lt;li&gt;index.html：项目的首页。&lt;/li&gt;
+  &lt;li&gt;_includes: 用于存放一些固定的HTML代码段，文件为.html格式，可以在模板中通过liquid标签引入，常用来在各个模板中复用如 导航条、标签栏、侧边栏之类的在每个页面上都一样不变的内容，需要注意的是，这个代码段也可以是未被编译的，也就是说也可以使用liquid标签放在这些代码段中。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;可以设置每个html文件的title(标题)和layout(布局)。比如index的layout一般是default。你也可以添加其他的页面，加上不同的layout。&lt;/p&gt;
+
+&lt;p&gt;定制自己独一无二的博客，离不开上面的文件及文件夹。&lt;/p&gt;
+
+&lt;p&gt;进入你博客的目录（就是刚刚用jekyll new的目录），运行命令：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll serve --watch
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;接着你就可以通过访问 &lt;em&gt;127.0.0.1:4000&lt;/em&gt; 或者&lt;em&gt;http://localhost:4000&lt;/em&gt; 看到生成的博客主页面了：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2016-4-11_frontpage.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;初始比较简陋，后面可以慢慢自己折腾:-D ，网上别人推荐的一个&lt;a href=&quot;http://jekyllthemes.org/&quot;&gt;jekyll的主题站
+&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;markdown&quot;&gt;2.3 使用Markdown编写博文&lt;/h2&gt;
+
+&lt;p&gt;Markdown是一种非常方便的标记语言，能够用简单的标记语法，让普通的文本具有一定的格式。&lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;markdown语法&lt;/a&gt;学起来很快。&lt;/p&gt;
+
+&lt;h3 id=&quot;sublime-text&quot;&gt;2.3.1 使用Sublime Text编辑器&lt;/h3&gt;
+
+&lt;p&gt;首先说说我使用的文本编辑器，我是用&lt;strong&gt;Sublime Text 3&lt;/strong&gt;来作为markdown编辑器。Sublime Text下我们需要先下载安装Markdown Editing和Markdown Preview 插件，具体步骤如下：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;点击Sublime Text中&lt;code class=&quot;highlighter-rouge&quot;&gt;Preferences&lt;/code&gt;的&lt;code class=&quot;highlighter-rouge&quot;&gt;Packet Control&lt;/code&gt;，输入install，选择install packets&lt;/li&gt;
+  &lt;li&gt;在插件库中分别安装&lt;code class=&quot;highlighter-rouge&quot;&gt;Markdown Editing&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;Markdown Preview&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;新建一个文件，以&lt;code class=&quot;highlighter-rouge&quot;&gt;.md&lt;/code&gt;作为文件后缀，用sublime text打开即可使用markdown编辑了！&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;markdown-previewhtml&quot;&gt;2.3.2 使用Markdown Preview生成HTML&lt;/h3&gt;
+
+&lt;p&gt;编辑完文本后，我们输入&lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl&lt;/code&gt;+&lt;code class=&quot;highlighter-rouge&quot;&gt;shift&lt;/code&gt;+&lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt;，补全Markdown Preview，可以看到有输出为HTML的选项，保存以后，可以用浏览器查看HTML的生成效果了，也就是你博文的效果了。&lt;/p&gt;
+
+&lt;h1 id=&quot;section-2&quot;&gt;后记&lt;/h1&gt;
+
+&lt;p&gt;第一篇博客，写的很多问题，不过至少已经磕磕碰碰地搭建了自己的博客，本篇主要记录一下大致的过程，以后我会慢慢摸索，包括&lt;strong&gt;选择自己的博客风格&lt;/strong&gt;，&lt;strong&gt;语法高亮&lt;/strong&gt;，&lt;strong&gt;评论系统&lt;/strong&gt;等等，还有很多路要走，所以我也会继续更新本文。&lt;/p&gt;</content><summary>1.前言</summary></entry><entry><title>Example 2</title><link href="/example/2014/09/11/example-2.html" rel="alternate" type="text/html" title="Example 2" /><published>2014-09-11T06:37:00+08:00</published><updated>2014-09-11T06:37:00+08:00</updated><id>/example/2014/09/11/example-2</id><content type="html" xml:base="/example/2014/09/11/example-2.html">&lt;p&gt;&lt;strong&gt;Basic&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Neque porro &lt;em&gt;quisquam&lt;/em&gt; est, qui &lt;strong&gt;dolorem&lt;/strong&gt; ipsum, quia &lt;strong&gt;&lt;em&gt;dolor&lt;/em&gt;&lt;/strong&gt; sit, amet, &lt;a href=&quot;http://cjdns.info/&quot;&gt;consectetur&lt;/a&gt;, adipisci velit.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;lorem&lt;/li&gt;
+  &lt;li&gt;ipsum&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;dolor&lt;/li&gt;
+  &lt;li&gt;sit&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Table Cell&lt;/td&gt;
+      &lt;td&gt;Table Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Blockquote&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;They who can give up essential liberty to obtain a little temporary safety, deserve neither liberty nor safety.&lt;/p&gt;
+
+  &lt;p&gt;&lt;em&gt;Benjamin Franklin&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Code&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;asyncEnabled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vAdmin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;txid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Allocator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requestAlloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Admin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Identity_check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Admin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vAdmin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int64_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enabled&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;asyncEnabled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Dict&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Dict_CONST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String_CONST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;asyncEnabled&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int_OBJ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Admin_sendMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;txid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><summary>Basic
+
+Neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit.
+
+
+  lorem
+  ipsum
+
+
+
+  dolor
+  sit</summary></entry><entry><title>Example</title><link href="/example/2014/09/11/example.html" rel="alternate" type="text/html" title="Example" /><published>2014-09-11T06:37:00+08:00</published><updated>2014-09-11T06:37:00+08:00</updated><id>/example/2014/09/11/example</id><content type="html" xml:base="/example/2014/09/11/example.html">&lt;p&gt;&lt;strong&gt;Basic&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Neque porro &lt;em&gt;quisquam&lt;/em&gt; est, qui &lt;strong&gt;dolorem&lt;/strong&gt; ipsum, quia &lt;strong&gt;&lt;em&gt;dolor&lt;/em&gt;&lt;/strong&gt; sit, amet, &lt;a href=&quot;http://cjdns.info/&quot;&gt;consectetur&lt;/a&gt;, adipisci velit.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;lorem&lt;/li&gt;
+  &lt;li&gt;ipsum&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;dolor&lt;/li&gt;
+  &lt;li&gt;sit&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Table Cell&lt;/td&gt;
+      &lt;td&gt;Table Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Blockquote&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;They who can give up essential liberty to obtain a little temporary safety, deserve neither liberty nor safety.&lt;/p&gt;
+
+  &lt;p&gt;&lt;em&gt;Benjamin Franklin&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Code&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;asyncEnabled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vAdmin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;txid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Allocator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requestAlloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Admin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Identity_check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Admin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vAdmin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int64_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enabled&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;asyncEnabled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Dict&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Dict_CONST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String_CONST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;asyncEnabled&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int_OBJ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Admin_sendMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;txid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><summary>Basic
+
+Neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit.
+
+
+  lorem
+  ipsum
+
+
+
+  dolor
+  sit
+
+
+
+  
+    
+      First Header
+      Second Header
+    
+  
+  
+    
+      Table Cell
+      Table Cell
+    
+  
+
+
+Blockquote
+
+
+  They who can give up essential liberty to obtain a little temporary safety, deserve neither liberty nor safety.
+
+  Benjamin Franklin
+
+
+Code
+
+static void asyncEnabled(Dict* args, void* vAdmin, String* txid, struct Allocator* requestAlloc)
+{
+    struct Admin* admin = Identity_check((struct Admin*) vAdmin);
+    int64_t enabled = admin-&amp;gt;asyncEnabled;
+    Dict d = Dict_CONST(String_CONST(&quot;asyncEnabled&quot;), Int_OBJ(enabled), NULL);
+    Admin_sendMessage(&amp;amp;d, txid, admin);
+}</summary></entry></feed>

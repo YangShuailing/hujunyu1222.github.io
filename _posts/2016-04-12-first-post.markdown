@@ -40,6 +40,19 @@ Jekyll是默认支持markdown语法的，[markdown语法](http://daringfireball.
     ruby dk.rb init 
     ruby dk.rb install 
 
+{% highlight c %}
+
+    #include <iostream>
+    using namespace std;
+
+    int main(){
+    cout << "Hello World!" << endl;
+    return 0;
+    }
+
+{% endhighlight c%}
+
+
 接下来就是安装jekyll了，运行指令：
 
     gem install jekyll      //安装jekyll

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Niklas Buschmann 2015 MIT <http://github.com/niklasbuschmann> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    
+    <meta name="description" content="Really cool blog about ... something">
+    <title> 搭建个人独立博客 › Lost in Code</title>
+    <link rel="canonical" href="/git-pages/jekyll/markdown/2016/04/11/first-post.html">
+    <link href="/main.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Gentium+Basic:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="" />
+    <script src="//niklasbuschmann.disqus.com/embed.js" async></script>
+    
+  </head>
+  <body>
+    <header>
+      <h1><a href="/">Lost in Code</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li><li><a href="/archive.html">Archive</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    
+    <article>
+      <header>
+        <h2><a href="/git-pages/jekyll/markdown/2016/04/11/first-post.html">搭建个人独立博客</a></h2>
+        <p><time datetime="2016-04-11T21:57:00+08:00">Apr 11, 2016</time> • git-pages, jekyll, and markdown</p>
+      </header>
+      <div>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">搭建个人独立博客</h1>
+    <p class="post-meta"><time datetime="2016-04-11T21:57:00+08:00" itemprop="datePublished">Apr 11, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h1 id="section">1.前言</h1>
+
+<p>我早就想搭建一个自己的博客了，由于拖延症晚期，所以一直到现在我才准备真正动手。<em>_(:зゝ∠)_</em> 不多说，进入正题。
+我主要采用的是<code class="highlighter-rouge">github-pages</code> + <code class="highlighter-rouge">jekyll</code> + <code class="highlighter-rouge">markdown</code> 这一套架构。主要分工如下：</p>
+
+<ul>
+  <li>github-pages用于显示博客的主页，相当于把自己的博客挂在github上</li>
+  <li>jekyll用于将用markdown写的博客转换为静态的html页面</li>
+  <li>markdown用于编写博客，十分方便。</li>
+</ul>
+
+<h1 id="section-1">2.具体搭建过程</h1>
+
+<h2 id="github-pages">2.1 Github-pages</h2>
+
+<p>想要github-pages，首先你要拥有一个<a href="https://github.com/">Github</a>账号。
+完成注册后，新建一个<strong>repository</strong>,命名为<code class="highlighter-rouge">你的用户名.github.io</code>或者<code class="highlighter-rouge">你的用户名.github.com</code> ，这个命名规则必须的，这个repository就是你账号的github-pages，<strong>每个账号只有一个！</strong>，而对于其他的项目，每个项目可以有多个git-pages。
+现在是个空的repository，我们暂时不管它。</p>
+
+<h2 id="jekyll">2.2 安装Jekyll</h2>
+<p>Jekyll是默认支持markdown语法的，<a href="http://daringfireball.net/projects/markdown/">markdown语法</a>简单易学，而且高效，无论是做笔记还是写心得都十分适合作为程序员的我们。</p>
+
+<p>本地文件操作简单，不需要管理数据库。新建了一个文件，刷新一下，页面上就有了发布的文件。</p>
+
+<ul>
+  <li>Jekyll是基于<strong>Ruby</strong>环境的，如果你是使用MAC的用户，那你的电脑里应该默认安装了Ruby环境，而像我这样的windows8用户，就需要先<a href="http://rubyinstaller.org/downloads/">下载Ruby</a>环境安装以及对应的<strong>development kit</strong>。ruby安装完后,安装完后一定记得将ruby添加的PATH中（安装的时候钩选<strong>add to PATH</strong>选项），我们将下载的development kit解压，如下图：</li>
+</ul>
+
+<p><img src="/assets/img/2016-4-11_devkit.jpg" alt="" /></p>
+
+<p>通过cmd我们进入该目录，并且运行指令安装devlopment kit：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ruby dk.rb init 
+ruby dk.rb install 
+</code></pre>
+</div>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c">    <span class="cp">#include &lt;iostream&gt;
+</span>    <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello World!"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span></code></pre></figure>
+
+<p>接下来就是安装jekyll了，运行指令：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>gem install jekyll      //安装jekyll
+gem install pygments.rb //用于语法高亮
+</code></pre>
+</div>
+
+<p>pygments的安装需要python环境的支持，具体可以去<a href="http://pygments.org/">pygments官网</a>查看。</p>
+
+<p>安装完jekyll后，我们可以在<em>D:\Ruby22-x64\lib\ruby\gems\2.2.0\gems\jekyll-3.1.2</em>
+找到jekyll，将该路径添加至PATH。</p>
+
+<p>接下来就可以用jekyll新建自己的博客了！在cmd中，进入自己选定的目录，输入命令：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>jekyll new aaa //aaa是你指定的名字
+</code></pre>
+</div>
+
+<p>则你就可以获得了一个default配置的博客了，如下图：</p>
+
+<p><img src="/assets/img/2016-4-11_newblog.jpg" alt="" /></p>
+
+<p><a href="http://jekyllrb.com/docs/home/">jekyll官网</a>给出的目录结构如下图：</p>
+
+<p><img src="/assets/img/2016-4-11_jekyllcatalogue.png" alt="" /></p>
+
+<p>可能生成的目录结构会有点不一样，但是基本是一样的，每个目录或文件的用途我自己还不是很懂，毕竟刚刚摸索，大致的用途引用自一个简书作者<a href="http://www.jianshu.com/p/609e1197754c">原文</a>：</p>
+
+<ul>
+  <li>_layouts：用于存放模板的文件夹。</li>
+  <li>_posts：用于存放博客文章的文件夹。</li>
+  <li>css：存放博客所用css的文件夹,比如主题文件以及高亮文件都是放在此处的。</li>
+  <li>_coinfig.yml：jekyll的配置文件，里面可以定义相当多的配置参数。</li>
+  <li>index.html：项目的首页。</li>
+  <li>_includes: 用于存放一些固定的HTML代码段，文件为.html格式，可以在模板中通过liquid标签引入，常用来在各个模板中复用如 导航条、标签栏、侧边栏之类的在每个页面上都一样不变的内容，需要注意的是，这个代码段也可以是未被编译的，也就是说也可以使用liquid标签放在这些代码段中。</li>
+</ul>
+
+<p>可以设置每个html文件的title(标题)和layout(布局)。比如index的layout一般是default。你也可以添加其他的页面，加上不同的layout。</p>
+
+<p>定制自己独一无二的博客，离不开上面的文件及文件夹。</p>
+
+<p>进入你博客的目录（就是刚刚用jekyll new的目录），运行命令：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>jekyll serve --watch
+</code></pre>
+</div>
+
+<p>接着你就可以通过访问 <em>127.0.0.1:4000</em> 或者<em>http://localhost:4000</em> 看到生成的博客主页面了：</p>
+
+<p><img src="/assets/img/2016-4-11_frontpage.jpg" alt="" /></p>
+
+<p>初始比较简陋，后面可以慢慢自己折腾:-D ，网上别人推荐的一个<a href="http://jekyllthemes.org/">jekyll的主题站
+</a>。</p>
+
+<h2 id="markdown">2.3 使用Markdown编写博文</h2>
+
+<p>Markdown是一种非常方便的标记语言，能够用简单的标记语法，让普通的文本具有一定的格式。<a href="http://daringfireball.net/projects/markdown/">markdown语法</a>学起来很快。</p>
+
+<h3 id="sublime-text">2.3.1 使用Sublime Text编辑器</h3>
+
+<p>首先说说我使用的文本编辑器，我是用<strong>Sublime Text 3</strong>来作为markdown编辑器。Sublime Text下我们需要先下载安装Markdown Editing和Markdown Preview 插件，具体步骤如下：</p>
+
+<ul>
+  <li>点击Sublime Text中<code class="highlighter-rouge">Preferences</code>的<code class="highlighter-rouge">Packet Control</code>，输入install，选择install packets</li>
+  <li>在插件库中分别安装<code class="highlighter-rouge">Markdown Editing</code>和<code class="highlighter-rouge">Markdown Preview</code></li>
+  <li>新建一个文件，以<code class="highlighter-rouge">.md</code>作为文件后缀，用sublime text打开即可使用markdown编辑了！</li>
+</ul>
+
+<h3 id="markdown-previewhtml">2.3.2 使用Markdown Preview生成HTML</h3>
+
+<p>编辑完文本后，我们输入<code class="highlighter-rouge">ctrl</code>+<code class="highlighter-rouge">shift</code>+<code class="highlighter-rouge">p</code>，补全Markdown Preview，可以看到有输出为HTML的选项，保存以后，可以用浏览器查看HTML的生成效果了，也就是你博文的效果了。</p>
+
+<h1 id="section-2">后记</h1>
+
+<p>第一篇博客，写的很多问题，不过至少已经磕磕碰碰地搭建了自己的博客，本篇主要记录一下大致的过程，以后我会慢慢摸索，包括<strong>选择自己的博客风格</strong>，<strong>语法高亮</strong>，<strong>评论系统</strong>等等，还有很多路要走，所以我也会继续更新本文。</p>
+
+
+  </div>
+
+</article>
+
+      </div>
+      
+      
+      <div id="disqus_thread"></div>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+    </article>
+
+    <footer>
+      <span><a href="">Junyu Hu</a></span>
+      <span><a href="https://github.com/hujunyu1222/"><i class="fa fa-github-square"></i></a><a href="https://github.com/hujunyu1222/"><i class="fa fa-weibo-square"></i></a></span>
+      <span>&copy; 2016</span>
+    </footer>
+  </body>
+</html>
